@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="container">
+    	<h1>لیست قیمت های فروشگاه خرید اینترنتی پنبه ریز</h1>
+    	<h2>آخرین به روز  رسانی  در  {{products[0].updated_at|pDate}}</h2>
+    	<table class="table">
+    		<thead>
+    			<tr>
+    				<th>عنوان</th>
+    				<th>موجود</th>
+    				<th>قیمت</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			{% for item in products%}
+    			<tr id="pr{{item.id}}" style="background: {{'none' if item.available else "red"}};color:{{'black' if item.available else "white"}}">
+    				<td>{{item.title}}</td>
+    				<td>{{'✔' if item.available else "✘"}}</td>
+    				<td>{{item.price+((item.price*9)/100)|int}}</td>
+    			</tr>
+    			{% endfor %}
+    		</tbody>
+    	</table>
+    </div>
+{% endblock %}
