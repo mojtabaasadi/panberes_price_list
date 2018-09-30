@@ -14,7 +14,7 @@ BOT_NAME = 'panberes_price'
 SPIDER_MODULES = ['panberes_price.spiders']
 NEWSPIDER_MODULE = 'panberes_price.spiders'
 
-
+DB = {"dbname":'cyynmluq' ,"user":'cyynmluq', "host":'pellefant.db.elephantsql.com', "password":'Sfdr_WCGjvIDoaVPyPkAd_qXrgkc0yQG'}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'panberes_price (+http://www.yourdomain.com)'
 
