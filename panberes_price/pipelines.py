@@ -10,7 +10,7 @@ class StorePipeline(object):
 		cursor = conn.cursor()
 		try:
 			q = """INSERT INTO products (title, price,link , count , updated_at) VALUES 
-			('{}', {},'{}',{},'{}') ON CONFLICT (title) do update set updated_at = Excluded.updated_at,count =Excluded.count,price = Excluded.price  """.format(item['title'], item['price'], item['link'],
+			('{}', {},'{}',{},'{}') ON CONFLICT (link) do update set updated_at = Excluded.updated_at,count =Excluded.count,price = Excluded.price  """.format(item['title'], item['price'], item['link'],
 				item['count'],str(datetime.datetime.now()).split('.')[0])
 			cursor.execute(q)
 			conn.commit()
