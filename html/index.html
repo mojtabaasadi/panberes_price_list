@@ -7,16 +7,19 @@
     		<thead>
     			<tr>
     				<th>عنوان</th>
-    				<th>موجود</th>
-    				<th>قیمت</th>
+                    <th>موجود</th>
+    				<th>تعداد( همه انبار ها )</th>
+    				<th>قیمت ( با 9% مالیات )</th>
     			</tr>
     		</thead>
     		<tbody>
     			{% for item in products%}
-    			<tr id="pr{{item.id}}" style="background: {{'none' if item.available else "red"}};color:{{'black' if item.available else "white"}}">
-    				<td>{{item.title}}</td>
-    				<td>{{'✔' if item.available else "✘"}}</td>
-    				<td>{{item.price+((item.price*9)/100)|int}}</td>
+                {% set available = item.count > 0%}
+    			<tr id="pr{{item.id}}" style="background: {{'none' if available else "red"}};color:{{'black' if available else "white"}}">
+    				<td><a style="color:{{'black' if available else "white"}}" href="{{item.link}}" target="blank">{{item.title}}</a></td>
+                    <td>{{'✔' if available else "✘"}}</td>
+    				<td>{{item.count}}</td>
+    				<td>{{item.price + ((item.price*14)/100)|int}}</td>
     			</tr>
     			{% endfor %}
     		</tbody>

@@ -21,7 +21,7 @@ class HelloWorld(object):
         conn = psycopg2.connect(**DB)
         cursor = conn.cursor()
         cursor.execute("select * from products")
-        data = [{"id":pr[0],"title":pr[1],"price":pr[2],"available":pr[3],"updated_at":pr[4]} for pr in cursor.fetchall()]
+        data = [{"id":pr[0],"title":pr[1],"price":pr[2],"updated_at":pr[3],"count":pr[4],"link":pr[5]} for pr in cursor.fetchall()]
         conn.close()
         env.filters['pDate'] = pDate
         tmpl = env.get_template('index.html')

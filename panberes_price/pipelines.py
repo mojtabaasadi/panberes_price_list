@@ -9,8 +9,9 @@ class StorePipeline(object):
 		conn = psycopg2.connect(**DB)
 		cursor = conn.cursor()
 		try:
-			q = """INSERT INTO products (title, price , available , updated_at) VALUES 
-			('{}', {},{},'{}') ON CONFLICT (title) do update set updated_at = Excluded.updated_at,available =Excluded.available,price = Excluded.price  """.format(item['title'], item['price'],"TRUE" if item['available'] else "FALSE",str(datetime.datetime.now()).split('.')[0])
+			q = """INSERT INTO products (title, price,link , count , updated_at) VALUES 
+			('{}', {},'{}',{},'{}') ON CONFLICT (title) do update set updated_at = Excluded.updated_at,count =Excluded.count,price = Excluded.price  """.format(item['title'], item['price'], item['link'],
+				item['count'],str(datetime.datetime.now()).split('.')[0])
 			cursor.execute(q)
 			conn.commit()
 		except Exception as e:
