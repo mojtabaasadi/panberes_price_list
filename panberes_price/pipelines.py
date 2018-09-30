@@ -10,7 +10,7 @@ class StorePipeline(object):
 		cursor = conn.cursor()
 		try:
 			q = """INSERT INTO products (title, price , available , updated_at) VALUES 
-			('{}', {},{},'{}') ON CONFLICT (title) do update set updated_at = Excluded.updated_at,available =Excluded.available,price = exclude.price  """.format(item['title'], item['price'],"TRUE" if item['available'] else "FALSE",str(datetime.datetime.now()).split('.')[0])
+			('{}', {},{},'{}') ON CONFLICT (title) do update set updated_at = Excluded.updated_at,available =Excluded.available,price = Excluded.price  """.format(item['title'], item['price'],"TRUE" if item['available'] else "FALSE",str(datetime.datetime.now()).split('.')[0])
 			cursor.execute(q)
 			conn.commit()
 		except Exception as e:
