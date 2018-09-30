@@ -7,7 +7,7 @@ from panberes_price.settings import DB
 
 def pDate(val):
     dif = datetime.datetime.now() - val
-    return jdatetime.datetime.fromgregorian(datetime=val).strftime(" %y-%m-%d %H:%M:%S") + (' --- ' + str(dif.days+1)+"روز پیش" if dif.days>=0 else "" ) 
+    return jdatetime.datetime.fromgregorian(datetime=val).strftime(" %y-%m-%d %H:%M:%S") + (' --- ' + str(dif.days)+"روز پیش" if dif.days>0 else "" ) 
 
 
 env = Environment(loader=FileSystemLoader('html'))
