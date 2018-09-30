@@ -1,3 +1,5 @@
+import json,os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 # -*- coding: utf-8 -*-
 
 # Scrapy settings for panberes_price project
@@ -13,8 +15,7 @@ BOT_NAME = 'panberes_price'
 
 SPIDER_MODULES = ['panberes_price.spiders']
 NEWSPIDER_MODULE = 'panberes_price.spiders'
-
-DB = {"dbname":'cyynmluq' ,"user":'cyynmluq', "host":'pellefant.db.elephantsql.com', "password":'Sfdr_WCGjvIDoaVPyPkAd_qXrgkc0yQG'}
+DB = json.load(open(dir_path+"/db.json","r"))
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'panberes_price (+http://www.yourdomain.com)'
 
