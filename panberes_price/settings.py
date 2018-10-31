@@ -17,7 +17,9 @@ SPIDER_MODULES = ['panberes_price.spiders']
 NEWSPIDER_MODULE = 'panberes_price.spiders'
 PANBERES_USERNAME = "2293270343"
 PANBERES_PASSWORD = "668457"
-DB = json.load(open(dir_path+"/db.json","r"))
+DB = {
+    "dbname":'cyynmluq', "user":'cyynmluq', "host":'pellefant.db.elephantsql.com', "password":'Sfdr_WCGjvIDoaVPyPkAd_qXrgkc0yQG'
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'panberes_price (+http://www.yourdomain.com)'
 

@@ -12,4 +12,5 @@ class Product(scrapy.Item):
     # define the fields for your item here like:
     title = scrapy.Field()
     price = scrapy.Field()
-    available = scrapy.Field()
+    count = scrapy.Field()
+    link = scrapy.Field()
