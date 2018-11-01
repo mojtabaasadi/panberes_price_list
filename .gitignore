@@ -16,3 +16,5 @@ lib64
 /.vscode
 *.pyo
 *.pyc
+
+panberes_price/env\.py
